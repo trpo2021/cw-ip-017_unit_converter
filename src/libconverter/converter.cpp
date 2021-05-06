@@ -48,4 +48,14 @@ double Metres_Inch(double parametr, bool mable) {
 double Metres_LightYear(double parametr, bool mable) {
     return exp_ten(parametr, -16 * pow(-1, mable)) * pow(pow(-1, mable), 1.057008707);}
 
-
+double exp_ten(double parametr, int degree) {
+    while (degree < 0) {
+        degree ++;
+        parametr /= 10;
+    }
+    while (degree > 0) {
+        degree --;
+        parametr *= 10;
+    }
+    return parametr;
+}

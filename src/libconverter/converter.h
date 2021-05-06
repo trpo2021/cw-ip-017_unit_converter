@@ -18,3 +18,4 @@ double Metres_Inch(double parametr, bool mable);
 
 double Metres_LightYear(double parametr, bool mable);
 
+double exp_ten(double parametr, int degree);
