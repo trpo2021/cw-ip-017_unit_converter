@@ -48,6 +48,7 @@ double Metres_Inch(double parametr, bool mable) {
 double Metres_LightYear(double parametr, bool mable) {
     return exp_ten(parametr, -16 * pow(-1, mable)) * pow(pow(-1, mable), 1.057008707);}
 
+<<<<<<< HEAD
 double underpow(double basis, char n)
 {
 	if(n==-1) return 1/basis;
@@ -83,4 +84,16 @@ double hour_to_nothour(double a, string b, int n)
 	if(b=="Month") return underpow((hour_to_nothour(a, "Day")*24)/731,n);
 	if(b=="Year") return underpow(hour_to_nothour(a, "Month")/12,n);
 	return 0;
+=======
+double exp_ten(double parametr, int degree) {
+    while (degree < 0) {
+        degree ++;
+        parametr /= 10;
+    }
+    while (degree > 0) {
+        degree --;
+        parametr *= 10;
+    }
+    return parametr;
+>>>>>>> 9c8aa86218c4a92cf785e44572cd686d2146b9c7
 }
