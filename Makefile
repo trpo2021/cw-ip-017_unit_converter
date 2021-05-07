@@ -6,7 +6,7 @@ SRC_MAIN = src/converter/
 SRC_LIB = src/libconverter/
 
 PROJECT_NAME = Unit_converter
-
+LIB_FILE = converter
 MAIN_FILE = main
 
 CFLAGS =-Wall -Wextra -Werror
@@ -27,11 +27,16 @@ EXE = .exe
 
 all: $(BIN)$(PROJECT_NAME)$(EXE)
 
-$(BIN)$(PROJECT_NAME)$(EXE): $(OBJ_MAIN)$(MAIN_FILE).o 
-	$(GPP) $(CFLAGS) $(CPPFLAGS) $(OBJ_MAIN)$(MAIN_FILE).o -o $(BIN)$(PROJECT_NAME)$(EXE) $(LIBS)
+$(BIN)$(PROJECT_NAME)$(EXE): $(OBJ_MAIN)$(MAIN_FILE).o  $(OBJ_LIBS)$(LIB_FILE).o
+	$(GPP) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LIBS)
 
 $(OBJ_MAIN)$(MAIN_FILE).o: $(SRC_MAIN)$(MAIN_FILE)$(PROJECT_LANG)
-	$(GPP) $(CFLAGS) $(CPPFLAGS) -c $(SRC_MAIN)$(MAIN_FILE)$(PROJECT_LANG) -o $(OBJ_MAIN)$(MAIN_FILE).o $(PACKAGE)
+	$(GPP) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ $(PACKAGE)
+	
+$(OBJ_LIBS)$(LIB_FILE).o: $(SRC_LIB)$(LIB_FILE).cpp
+	$(GPP) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ $(PACKAGE)
+
+
 .PHONY: clean
 
 clean:
