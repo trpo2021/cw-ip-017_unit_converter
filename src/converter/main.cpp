@@ -2,12 +2,12 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <iostream>
+#include <libconverter/converter.h>
 #include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include <libconverter/converter.h>
 #define UI_FILE "../src/converter/Unit_converter.glade"
 GtkBuilder* builder;
 GtkWidget* mainflow;
@@ -585,68 +585,47 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
         { ; }
     }
     if (gtk_combo_box_get_active (types) == 4) {
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Kg) == 0) {
-            ;
-        } // weight_calc(elements,input_element,0);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), G) == 0) {
-            ;
-        } // weight_calc(elements,input_element,1);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Mg) == 0) {
-            ;
-        } // weight_calc(elements,input_element,2);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Mt) == 0) {
-            ;
-        } // weight_calc(elements,input_element,3);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Lt) == 0) {
-            ;
-        } // weight_calc(elements,input_element,4);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), St) == 0) {
-            ;
-        } // weight_calc(elements,input_element,5);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Pound) == 0) {
-            ;
-        } // weight_calc(elements,input_element,6);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Ounce) == 0) {
-            ;
-        } // weight_calc(elements,input_element,7);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Car) == 0) {
-            ;
-        } // weight_calc(elements,input_element,8);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), AMU) == 0) {
-            ;
-        } // weight_calc(elements,input_element,9);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Kg) == 0)
+            weight_calc (elements, input_element, 0);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), G) == 0)
+            weight_calc (elements, input_element, 1);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Mg) == 0)
+            weight_calc (elements, input_element, 2);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Mt) == 0)
+            weight_calc (elements, input_element, 3);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Lt) == 0)
+            weight_calc (elements, input_element, 4);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), St) == 0)
+            weight_calc (elements, input_element, 5);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Pound) == 0)
+            weight_calc (elements, input_element, 6);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Ounce) == 0)
+            weight_calc (elements, input_element, 7);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Car) == 0)
+            weight_calc (elements, input_element, 8);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), AMU) == 0)
+            weight_calc (elements, input_element, 9);
 
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Kg) == 0) {
-            ;
-        } // from_double_to_char(elements, 0, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), G) == 0) {
-            ;
-        } // from_double_to_char(elements, 1, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mg) == 0) {
-            ;
-        } // from_double_to_char(elements, 2, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mt) == 0) {
-            ;
-        } // from_double_to_char(elements, 3, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Lt) == 0) {
-            ;
-        } // from_double_to_char(elements, 4, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), St) == 0) {
-            ;
-        } // from_double_to_char(elements, 5, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Pound) == 0) {
-            ;
-        } // from_double_to_char(elements, 6, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Ounce) == 0) {
-            ;
-        } // from_double_to_char(elements, 7, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Car) == 0) {
-            ;
-        } // from_double_to_char(elements, 8, input_char, output);
-        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), AMU) == 0) {
-            ;
-        } // from_double_to_char(elements, 9, input_char, output);
-        { ; }
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Kg) == 0)
+            from_double_to_char (elements, 0, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), G) == 0)
+            from_double_to_char (elements, 1, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mg) == 0)
+            from_double_to_char (elements, 2, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mt) == 0)
+            from_double_to_char (elements, 3, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Lt) == 0)
+            from_double_to_char (elements, 4, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), St) == 0)
+            from_double_to_char (elements, 5, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Pound) == 0)
+            from_double_to_char (elements, 6, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Ounce) == 0)
+            from_double_to_char (elements, 7, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Car) == 0)
+            from_double_to_char (elements, 8, input_char, output);
+        if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), AMU) == 0)
+            from_double_to_char (elements, 9, input_char, output);
     }
     if (gtk_combo_box_get_active (types) == 5) {
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types1), Sec) == 0) {
