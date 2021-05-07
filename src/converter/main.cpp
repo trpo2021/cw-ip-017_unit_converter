@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
+#include <libconverter/converter.h>
 #define UI_FILE "../src/converter/Unit_converter.glade"
-using namespace std;
 GtkBuilder* builder;
 GtkWidget* mainflow;
 GtkFixed* chest;
@@ -323,37 +323,37 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
 
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), M) == 0) {
             ;
-        } // from_double_to_char(elements, 0, input_char);
+        } // from_double_to_char(elements, 0, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Km) == 0) {
             ;
-        } // from_double_to_char(elements, 1, input_char);
+        } // from_double_to_char(elements, 1, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Cm) == 0) {
             ;
-        } // from_double_to_char(elements, 2, input_char);
+        } // from_double_to_char(elements, 2, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mm) == 0) {
             ;
-        } // from_double_to_char(elements, 3, input_char);
+        } // from_double_to_char(elements, 3, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mcm) == 0) {
             ;
-        } // from_double_to_char(elements, 4, input_char);
+        } // from_double_to_char(elements, 4, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Nm) == 0) {
             ;
-        } // from_double_to_char(elements, 5, input_char);
+        } // from_double_to_char(elements, 5, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mile) == 0) {
             ;
-        } // from_double_to_char(elements, 6, input_char);
+        } // from_double_to_char(elements, 6, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Yard) == 0) {
             ;
-        } // from_double_to_char(elements, 7, input_char);
+        } // from_double_to_char(elements, 7, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Foot) == 0) {
             ;
-        } // from_double_to_char(elements, 8, input_char);
+        } // from_double_to_char(elements, 8, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Inch) == 0) {
             ;
-        } // from_double_to_char(elements, 9, input_char);
+        } // from_double_to_char(elements, 9, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), LY) == 0) {
             ;
-        } // from_double_to_char(elements, 10, input_char);
+        } // from_double_to_char(elements, 10, input_char, output);
         { ; }
     }
     if (gtk_combo_box_get_active (types) == 1) {
@@ -369,13 +369,13 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
 
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), C) == 0) {
             ;
-        } // from_double_to_char(elements, 0, input_char);
+        } // from_double_to_char(elements, 0, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), K) == 0) {
             ;
-        } // from_double_to_char(elements, 1, input_char);
+        } // from_double_to_char(elements, 1, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), F) == 0) {
             ;
-        } // from_double_to_char(elements, 2, input_char);
+        } // from_double_to_char(elements, 2, input_char, output);
         { ; }
     }
     if (gtk_combo_box_get_active (types) == 2) {
@@ -415,37 +415,37 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
 
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SM) == 0) {
             ;
-        } // from_double_to_char(elements, 0, input_char);
+        } // from_double_to_char(elements, 0, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SKm) == 0) {
             ;
-        } // from_double_to_char(elements, 1, input_char);
+        } // from_double_to_char(elements, 1, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SCm) == 0) {
             ;
-        } // from_double_to_char(elements, 2, input_char);
+        } // from_double_to_char(elements, 2, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SMm) == 0) {
             ;
-        } // from_double_to_char(elements, 3, input_char);
+        } // from_double_to_char(elements, 3, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SMm) == 0) {
             ;
-        } // from_double_to_char(elements, 4, input_char);
+        } // from_double_to_char(elements, 4, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Hec) == 0) {
             ;
-        } // from_double_to_char(elements, 5, input_char);
+        } // from_double_to_char(elements, 5, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SMile) == 0) {
             ;
-        } // from_double_to_char(elements, 6, input_char);
+        } // from_double_to_char(elements, 6, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SYard) == 0) {
             ;
-        } // from_double_to_char(elements, 7, input_char);
+        } // from_double_to_char(elements, 7, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SFoot) == 0) {
             ;
-        } // from_double_to_char(elements, 8, input_char);
+        } // from_double_to_char(elements, 8, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), SInch) == 0) {
             ;
-        } // from_double_to_char(elements, 9, input_char);
+        } // from_double_to_char(elements, 9, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Ac) == 0) {
             ;
-        } // from_double_to_char(elements, 10, input_char);
+        } // from_double_to_char(elements, 10, input_char, output);
         { ; }
     }
     if (gtk_combo_box_get_active (types) == 3) {
@@ -518,70 +518,70 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
 
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CM) == 0) {
             ;
-        } // from_double_to_char(elements, 0, input_char);
+        } // from_double_to_char(elements, 0, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CKm) == 0) {
             ;
-        } // from_double_to_char(elements, 1, input_char);
+        } // from_double_to_char(elements, 1, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CCm) == 0) {
             ;
-        } // from_double_to_char(elements, 2, input_char);
+        } // from_double_to_char(elements, 2, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CMm) == 0) {
             ;
-        } // from_double_to_char(elements, 3, input_char);
+        } // from_double_to_char(elements, 3, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Lit) == 0) {
             ;
-        } // from_double_to_char(elements, 4, input_char);
+        } // from_double_to_char(elements, 4, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mlit) == 0) {
             ;
-        } // from_double_to_char(elements, 5, input_char);
+        } // from_double_to_char(elements, 5, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), USGallon) == 0) {
             ;
-        } // from_double_to_char(elements, 6, input_char);
+        } // from_double_to_char(elements, 6, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), USQuart) == 0) {
             ;
-        } // from_double_to_char(elements, 7, input_char);
+        } // from_double_to_char(elements, 7, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), USPint) == 0) {
             ;
-        } // from_double_to_char(elements, 8, input_char);
+        } // from_double_to_char(elements, 8, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), USCup) == 0) {
             ;
-        } // from_double_to_char(elements, 9, input_char);
+        } // from_double_to_char(elements, 9, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), USFOunce) == 0) {
             ;
-        } // from_double_to_char(elements, 10, input_char);
+        } // from_double_to_char(elements, 10, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), USTableSpoon) == 0) {
             ;
-        } // from_double_to_char(elements, 11, input_char);
+        } // from_double_to_char(elements, 11, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), ImpGallon) == 0) {
             ;
-        } // from_double_to_char(elements, 12, input_char);
+        } // from_double_to_char(elements, 12, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), ImpQuart) == 0) {
             ;
-        } // from_double_to_char(elements, 13, input_char);
+        } // from_double_to_char(elements, 13, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), ImpPint) == 0) {
             ;
-        } // from_double_to_char(elements, 14, input_char);
+        } // from_double_to_char(elements, 14, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), ImpFOunce) == 0) {
             ;
-        } // from_double_to_char(elements, 15, input_char);
+        } // from_double_to_char(elements, 15, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), ImpTableSpoon) == 0) {
             ;
-        } // from_double_to_char(elements, 16, input_char);
+        } // from_double_to_char(elements, 16, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), ImpTeaSpoon) == 0) {
             ;
-        } // from_double_to_char(elements, 17, input_char);
+        } // from_double_to_char(elements, 17, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CMile) == 0) {
             ;
-        } // from_double_to_char(elements, 18, input_char);
+        } // from_double_to_char(elements, 18, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CYard) == 0) {
             ;
-        } // from_double_to_char(elements, 19, input_char);
+        } // from_double_to_char(elements, 19, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CFoot) == 0) {
             ;
-        } // from_double_to_char(elements, 20, input_char);
+        } // from_double_to_char(elements, 20, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), CInch) == 0) {
             ;
-        } // from_double_to_char(elements, 21, input_char);
+        } // from_double_to_char(elements, 21, input_char, output);
         { ; }
     }
     if (gtk_combo_box_get_active (types) == 4) {
@@ -618,34 +618,34 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
 
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Kg) == 0) {
             ;
-        } // from_double_to_char(elements, 0, input_char);
+        } // from_double_to_char(elements, 0, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), G) == 0) {
             ;
-        } // from_double_to_char(elements, 1, input_char);
+        } // from_double_to_char(elements, 1, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mg) == 0) {
             ;
-        } // from_double_to_char(elements, 2, input_char);
+        } // from_double_to_char(elements, 2, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mt) == 0) {
             ;
-        } // from_double_to_char(elements, 3, input_char);
+        } // from_double_to_char(elements, 3, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Lt) == 0) {
             ;
-        } // from_double_to_char(elements, 4, input_char);
+        } // from_double_to_char(elements, 4, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), St) == 0) {
             ;
-        } // from_double_to_char(elements, 5, input_char);
+        } // from_double_to_char(elements, 5, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Pound) == 0) {
             ;
-        } // from_double_to_char(elements, 6, input_char);
+        } // from_double_to_char(elements, 6, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Ounce) == 0) {
             ;
-        } // from_double_to_char(elements, 7, input_char);
+        } // from_double_to_char(elements, 7, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Car) == 0) {
             ;
-        } // from_double_to_char(elements, 8, input_char);
+        } // from_double_to_char(elements, 8, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), AMU) == 0) {
             ;
-        } // from_double_to_char(elements, 9, input_char);
+        } // from_double_to_char(elements, 9, input_char, output);
         { ; }
     }
     if (gtk_combo_box_get_active (types) == 5) {
@@ -685,37 +685,37 @@ void calc_button_clicked (GtkWidget* widget, gpointer data) {
 
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Sec) == 0) {
             ;
-        } // from_double_to_char(elements, 0, input_char);
+        } // from_double_to_char(elements, 0, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Msec) == 0) {
             ;
-        } // from_double_to_char(elements, 1, input_char);
+        } // from_double_to_char(elements, 1, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Mcsec) == 0) {
             ;
-        } // from_double_to_char(elements, 2, input_char);
+        } // from_double_to_char(elements, 2, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Nsec) == 0) {
             ;
-        } // from_double_to_char(elements, 3, input_char);
+        } // from_double_to_char(elements, 3, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Psec) == 0) {
             ;
-        } // from_double_to_char(elements, 4, input_char);
+        } // from_double_to_char(elements, 4, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Min) == 0) {
             ;
-        } // from_double_to_char(elements, 5, input_char);
+        } // from_double_to_char(elements, 5, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Hour) == 0) {
             ;
-        } // from_double_to_char(elements, 6, input_char);
+        } // from_double_to_char(elements, 6, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Day) == 0) {
             ;
-        } // from_double_to_char(elements, 7, input_char);
+        } // from_double_to_char(elements, 7, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Week) == 0) {
             ;
-        } // from_double_to_char(elements, 8, input_char);
+        } // from_double_to_char(elements, 8, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Month) == 0) {
             ;
-        } // from_double_to_char(elements, 9, input_char);
+        } // from_double_to_char(elements, 9, input_char, output);
         if (strcmp (gtk_combo_box_text_get_active_text (object_of_types2), Year) == 0) {
             ;
-        } // from_double_to_char(elements, 10, input_char);
+        } // from_double_to_char(elements, 10, input_char, output);
         { ; }
     }
     UNUSED (input_element);
