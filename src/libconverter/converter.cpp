@@ -35,3 +35,28 @@ void from_double_to_char (vector<double> elements, int i, const gchar* input_cha
     input_char = temprory.c_str ();
     gtk_entry_set_text (output, input_char);
 }
+
+void time (vector<double>& elements, double input_element, int position_of_element) {
+    int i;
+    double coefficients[11]{
+        1 / (1.e+3),    // 0 sec
+        1 / (1.e+3),    // 1 milisec
+        1 / (1.e+3),    // 2 microsec
+        1 / (1.e+3),    // 3 nanosec
+        1 / (1.e+3),    // 4 picasec
+        60000000000000, // 5 minutes
+        60,             // 6 hours
+        24,             // 7 days
+        7,              // 8 weeks
+        29.5 / 7,       // 9 months
+        12,             // 10 years
+    };
+    elements.resize (11);
+    elements[position_of_element] = input_element;
+    for (i = position_of_element; i > 0; --i) {
+        elements[i - 1] = elements[i] * coefficients[i];
+    }
+    for (i = position_of_element; i < 10; i++) {
+        elements[i + 1] = elements[i] / coefficients[i + 1];
+    }
+}
