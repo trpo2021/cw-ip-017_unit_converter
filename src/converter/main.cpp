@@ -1,4 +1,4 @@
-#include <Windows.h>
+//#include <Windows.h>
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <iostream>
@@ -731,7 +731,7 @@ static gboolean cb_delete (GtkWidget* window, gpointer data) {
 }
 
 int main (int argc, char* argv[]) {
-    ::ShowWindow (::GetConsoleWindow (), SW_HIDE);
+    //::ShowWindow (::GetConsoleWindow (), SW_HIDE);
 
     GError* error = NULL;
 
