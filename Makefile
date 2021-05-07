@@ -15,8 +15,10 @@ CFLAGS =-Wall -Wextra -Werror
 CPPFLAGS =-Isrc -Iconverter -MP -MMD 
 
 GPP = g++
-PACKAGE = `pkg-config --cflags gtk+-3.0`
-LIBS = `pkg-config --libs gtk+-3.0`
+PACKAGE = $(shell pkg-config --cflags gtk+-3.0)
+LIBS = $(shell pkg-config --libs gtk+-3.0)
+
+
 
 PROJECT_LANG = .cpp
 EXE = .exe
@@ -30,7 +32,6 @@ $(BIN)$(PROJECT_NAME)$(EXE): $(OBJ_MAIN)$(MAIN_FILE).o
 
 $(OBJ_MAIN)$(MAIN_FILE).o: $(SRC_MAIN)$(MAIN_FILE)$(PROJECT_LANG)
 	$(GPP) $(CFLAGS) $(CPPFLAGS) -c $(SRC_MAIN)$(MAIN_FILE)$(PROJECT_LANG) -o $(OBJ_MAIN)$(MAIN_FILE).o $(PACKAGE)
-	
 .PHONY: clean
 
 clean:
