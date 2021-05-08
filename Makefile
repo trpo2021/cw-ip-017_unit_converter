@@ -1,6 +1,6 @@
-APP_NAME = geometry
-APP_NAME_TEST = main_test
-LIB_NAME = libgeometry
+APP_NAME = converter
+APP_NAME_TEST = test
+LIB_NAME = libconverter
 CC = g++
 
 CPPFLAGS = -Wall -Wextra -Werror -I src -MP -MMD
@@ -19,10 +19,10 @@ SRC_DIR = src
 TEST_DIR = test
 
 APP_PATH_TEST = $(BIN_DIR)/$(APP_NAME_TEST)
-APP_PATH = $(BIN_DIR)/$(APP_NAME)
+iAPP_PATH = $(BIN_DIR)/$(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
-SRC_EXT = cpp
+SiRC_EXT = cpp
 
 APP_SOURCES = $(shell find $(SRC_DIR)/$(APP_NAME) -name '*.$(SRC_EXT)')
 APP_OBJECTS = $(APP_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
