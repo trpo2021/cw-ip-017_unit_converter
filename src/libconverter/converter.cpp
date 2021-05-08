@@ -60,3 +60,72 @@ void time (vector<double>& elements, double input_element, int position_of_eleme
         elements[i + 1] = elements[i] / coefficients[i + 1];
     }
 }
+
+double Kelvin_Celsius(double parametr, bool mable) {
+  return parametr + pow(-1, mable) * 273;
+}
+double In_Fahrenheit(double parametr, bool temp) {
+  if (temp == true)
+    parametr = Kelvin_Celsius(parametr, temp);
+  return parametr * 1.8 + 32;
+}
+double From_Fahrenheit(double parametr, bool temp) {
+  if (temp == true)
+    parametr += 459;
+  else
+    parametr -= 32;
+  return parametr / 1.8;
+}
+
+void length(vector<double> &elements, double input_element,
+            int position_of_element) {
+  int i;
+  double coefficients[11]{
+      1,
+      1.e+3,                 // 1 Kilometer
+      1.e-5,                 // 2 Centimeter
+      1.e-1,                 // 3 Millimeter
+      1.e-3,                 // 4 Micrometer
+      1.e-3,                 // 5 Nanometer
+      1609350000000e+0,      // 6 Mile
+      1 / 1760.0065617e+0,   // 7 Yard
+      1 / 3.e+0,             // 8 Foot
+      1 / 12.e+0,            // 9 Inch
+      372466929133858300.e+0 // 10 Light Year
+  };
+  elements.resize(11);
+  elements[position_of_element] = input_element;
+  for (i = position_of_element; i > 0; --i) {
+    elements[i - 1] = elements[i] * coefficients[i];
+  }
+  for (i = position_of_element; i < 10; i++) {
+    elements[i + 1] = elements[i] / coefficients[i + 1];
+  }
+}
+
+void temp(vector<double> &elements, double input_element,
+          int position_of_element) {
+  int i;
+  elements.resize(3);
+  switch (position_of_element) {
+  case 0: {
+    elements[0] = input_element;
+    elements[1] = Kelvin_Celsius(input_element, false);
+    elements[2] = In_Fahrenheit(input_element, false);
+    break;
+  }
+  case 1: {
+    elements[0] = Kelvin_Celsius(input_element, true);
+    elements[1] = input_element;
+    elements[2] = In_Fahrenheit(input_element, true);
+    break;
+  }
+  case 2: {
+    elements[0] = From_Fahrenheit(input_element, false);
+    ;
+    elements[1] = From_Fahrenheit(input_element, true);
+    elements[2] = input_element;
+    break;
+  }
+  }
+}
