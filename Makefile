@@ -1,70 +1,46 @@
-APP_NAME = converter
-APP_NAME_TEST = test
-LIB_NAME = libconverter
-CC = g++
+BIN = bin/
+OBJ_MAIN = obj/src/converter/
+OBJ_LIBS = obj/src/libconverter/
+SRC_MAIN = src/converter/
+SRC_LIB = src/libconverter/
 
-CPPFLAGS = -Wall -Wextra -Werror -I src -MP -MMD
-CPPFLAGS_TEST = -Wall -Wextra -Werror -I thirdparty -I src -MP -MMD
-LDFLAGS =
-LDLIBS = -lm
+PROJECT_NAME = Unit_converter
+LIB_FILE = converter
+MAIN_FILE = main
 
-BIN_DIR = bin
-OBJ_DIR = obj
-SRC_DIR = src
-TEST_DIR = test
+CFLAGS =-Wall -Wextra -Werror
 
-APP_PATH_TEST = $(BIN_DIR)/$(APP_NAME_TEST)
-APP_PATH = $(BIN_DIR)/$(APP_NAME)
-LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
-SRC_EXT = cpp
+CPPFLAGS =-Isrc -Iconverter -MP -MMD 
 
-APP_SOURCES = $(shell find $(SRC_DIR)/$(APP_NAME) -name '*.$(SRC_EXT)')
-APP_OBJECTS = $(APP_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
+GPP = g++
+PACKAGE = $(shell pkg-config --cflags gtk+-3.0)
+LIBS = $(shell pkg-config --libs gtk+-3.0)
 
-APP_SOURCES_TEST = $(shell find $(TEST_DIR) -name '*.$(SRC_EXT)')
-APP_OBJECTS_TEST = $(APP_SOURCES_TEST:$(TEST_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(TEST_DIR)/%.o)
 
-LIB_SOURCES = $(shell find $(SRC_DIR)/$(LIB_NAME) -name '*.$(SRC_EXT)')
-LIB_OBJECTS = $(LIB_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
 
-DEPS = $(APP_OBJECTS:.o=.d) $(LIB_OBJECTS:.o=.d)
-DEPS_TEST = $(APP_OBJECTS_TEST:.o=.d) $(LIB_OBJECTS:.o=.d)
+PROJECT_LANG = .cpp
+EXE = .exe
 
 .PHONY: all
-all: $(APP_PATH)
 
--include $(DEPS)
+all: $(BIN)$(PROJECT_NAME)$(EXE)
 
-$(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
-	$(CC) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+$(BIN)$(PROJECT_NAME)$(EXE): $(OBJ_MAIN)$(MAIN_FILE).o  $(OBJ_LIBS)$(LIB_FILE).o
+	$(GPP) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LIBS)
 
-$(LIB_PATH): $(LIB_OBJECTS)
-	ar rcs $@ $^
-
-$(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME)/%.o: $(SRC_DIR)/$(APP_NAME)/%.$(SRC_EXT)
-	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
-
-$(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.$(SRC_EXT)
-	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
-
-.PHONY: test
-test: $(APP_PATH_TEST)
-
--include $(DEPS_TEST)
-
-$(APP_PATH_TEST): $(APP_OBJECTS_TEST) $(LIB_PATH)
-	$(CC) $(CPPFLAGS_TEST) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+$(OBJ_MAIN)$(MAIN_FILE).o: $(SRC_MAIN)$(MAIN_FILE)$(PROJECT_LANG)
+	$(GPP) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ $(PACKAGE)
 	
-$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.$(SRC_EXT)
-	$(CC) -c $(CPPFLAGS_TEST) $< -o $@ $(LDLIBS)
+$(OBJ_LIBS)$(LIB_FILE).o: $(SRC_LIB)$(LIB_FILE).cpp
+	$(GPP) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ $(PACKAGE)
+
 
 .PHONY: clean
+
 clean:
-	$(RM) $(APP_PATH) $(LIB_PATH)
-	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
-	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
-	find $(OBJ_DIR) -name '*.a' -exec $(RM) '{}' \;
-	find $(OBJ_DIR) -name '*.elf' -exec $(RM) '{}' \;
-	find $(OBJ_DIR) -name '*.out'-exec $(RM) '{}' \;
-	find $(OBJ_DIR) -name '*.stackdump' -exec $(RM) '{}' \;
+	find $(OBJ_MAIN) -name "*.o" -type f -delete
+	find $(OBJ_MAIN) -name "*.d" -type f -delete
+	find $(OBJ_LIB) -name "*.o" -type f -delete
+	find $(OBJ_LIB) -name "*.d" -type f -delete
+	find $(OBJ_LIB) -name "*.a" -type f -delete
