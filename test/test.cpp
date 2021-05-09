@@ -1,6 +1,6 @@
 #include <ctest.h>
 #include <libconverter/converter.h>
-
+#define UI_FILE ".. ../src/converter/Unit_converter.glade"
 CTEST(Conversion, length_conversion)
 {
     int input = 1;
@@ -41,7 +41,7 @@ CTEST(Conversion, length_conversion)
     ASSERT_DBL_NEAR(elements[10], real_elements[10]);
 }
 
-CTEST(Conversion, time_conversion)
+CTEST(Conversion, time_conversion1)
 {
     int input = 1;
 
@@ -113,7 +113,7 @@ CTEST(Conversion, weight_conversion)
     ASSERT_DBL_NEAR(elements[9], real_elements[9]);
 }
 
-CTEST(Conversion, time_conversion)
+CTEST(Conversion, time_conversion2)
 {
     int input = 1;
 

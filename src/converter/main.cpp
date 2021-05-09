@@ -21,11 +21,11 @@ GtkComboBoxText* object_of_types1;
 GtkComboBoxText* object_of_types2;
 GtkListStore* liststore1;
 GtkImage* thing;
-GtkCellRendererText* lenght;
-GtkCellRendererText* temp;
-GtkCellRendererText* area;
-GtkCellRendererText* volume;
-GtkCellRendererText* weight;
+GtkCellRendererText* lenght1;
+GtkCellRendererText* temp1;
+GtkCellRendererText* area1;
+GtkCellRendererText* volume1;
+GtkCellRendererText* weight1;
 GtkCellRendererText* time_not_timeh;
 
 const gchar* Kg = "Kilogram";
@@ -882,11 +882,11 @@ int main(int argc, char* argv[])
             gtk_builder_get_object(builder, "object_of_types2"));
     liststore1 = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore1"));
     thing = GTK_IMAGE(gtk_builder_get_object(builder, "thing"));
-    lenght = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "lenght"));
-    temp = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "temp"));
-    area = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "area"));
-    volume = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "volume"));
-    weight = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "weight"));
+    lenght1 = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "lenght"));
+    temp1 = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "temp"));
+    area1 = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "area"));
+    volume1 = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "volume"));
+    weight1 = GTK_CELL_RENDERER_TEXT(gtk_builder_get_object(builder, "weight"));
     time_not_timeh = GTK_CELL_RENDERER_TEXT(
             gtk_builder_get_object(builder, "time_not_timeh"));
 
