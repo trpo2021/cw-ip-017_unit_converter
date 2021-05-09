@@ -10,8 +10,8 @@ GPP = g++
 PACKAGE = $(shell pkg-config --cflags gtk+-3.0)
 LIBS = $(shell pkg-config --libs gtk+-3.0)
 
-LDFLAGS =
-LDLIBS = -lm
+LDFLAGS = $(shell pkg-config --cflags gtk+-3.0) -municode
+LDLIBS = $(shell pkg-config --libs gtk+-3.0) -municode
 
 BIN_DIR = bin
 OBJ_DIR = obj
@@ -19,7 +19,7 @@ SRC_DIR = src
 TEST_DIR = test
 
 APP_PATH_TEST = $(BIN_DIR)/$(APP_NAME_TEST)
-iAPP_PATH = $(BIN_DIR)/$(APP_NAME)
+APP_PATH = $(BIN_DIR)/$(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
 SiRC_EXT = cpp
@@ -48,10 +48,10 @@ $(LIB_PATH): $(LIB_OBJECTS)
 	ar rcs $@ $^
 
 $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME)/%.o: $(SRC_DIR)/$(APP_NAME)/%.$(SRC_EXT)
-	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
+	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDFLAGS)
 
 $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.$(SRC_EXT)
-	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
+	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDFLAGS)
 
 .PHONY: test
 test: $(APP_PATH_TEST)
@@ -62,7 +62,7 @@ $(APP_PATH_TEST): $(APP_OBJECTS_TEST) $(LIB_PATH)
 	$(CC) $(CPPFLAGS_TEST) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 	
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.$(SRC_EXT)
-	$(CC) -c $(CPPFLAGS_TEST) $< -o $@ $(LDLIBS)
+	$(CC) -c $(CPPFLAGS_TEST) $< -o $@ $(LDFLAGS)
 
 .PHONY: clean
 clean:
