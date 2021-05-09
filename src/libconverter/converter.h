@@ -1,6 +1,5 @@
 #ifndef CONVERTER_LIB
 #define CONVERTER_LIB
-
 #include <gtk/gtk.h>
 #include <sstream>
 #include <string>

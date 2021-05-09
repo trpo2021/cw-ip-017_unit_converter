@@ -1,9 +1,13 @@
 #include "converter.h"
 #include <gtk/gtk.h>
+#include <math.h>
 #include <sstream>
 #include <string>
 #include <vector>
 #define UI_FILE "../converter/Unit_converter.glade"
+
+#define UNUSED(x) (void)(x);
+
 void weight_calc(
         vector<double>& elements, double input_element, int position_of_element)
 {
@@ -119,7 +123,6 @@ void length(
 void temp(
         vector<double>& elements, double input_element, int position_of_element)
 {
-    int i;
     elements.resize(3);
     switch (position_of_element) {
     case 0: {
