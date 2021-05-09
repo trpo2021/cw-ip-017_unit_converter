@@ -10,8 +10,8 @@ GPP = g++
 PACKAGE = $(shell pkg-config --cflags gtk+-3.0)
 LIBS = $(shell pkg-config --libs gtk+-3.0)
 
-LDFLAGS = $(shell pkg-config --cflags gtk+-3.0) -municode
-LDLIBS = $(shell pkg-config --libs gtk+-3.0) -municode
+LDFLAGS = $(shell pkg-config --cflags gtk+-3.0)
+LDLIBS = $(shell pkg-config --libs gtk+-3.0)
 
 BIN_DIR = bin
 OBJ_DIR = obj
