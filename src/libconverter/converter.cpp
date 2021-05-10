@@ -162,7 +162,7 @@ void area(
             1 / 3097602.26e+0,    // 7 Square Yard
             1 / 9.e+0,            // 8 Square Foot
             1 / 144.e+0,          // 9 Square Inch
-            1 / 1.594225079E-7e+0 // 10 Acre
+            1 / 1.594225079e-7    // 10 Acre
     };
     elements.resize(11);
     elements[position_of_element] = input_element;
