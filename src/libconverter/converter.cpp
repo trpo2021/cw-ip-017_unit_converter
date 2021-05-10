@@ -166,7 +166,7 @@ void area(
     };
     elements.resize(11);
     elements[position_of_element] = input_element;
-    for (i = position_of_element; i > 0; —i) {
+    for (i = position_of_element; i > 0; --i) {
         elements[i - 1] = elements[i] * coefficients[i];
     }
     for (i = position_of_element; i < 10; i++) {
