@@ -153,16 +153,16 @@ void area(
     int i;
     double coefficients[11]{
             1,
-            1.e+6,                // 1 Square KiloMeter
-            1.e-10,               // 2 Square Centimeter
-            1.e-2,                // 3 Square Millimeter
-            1.e-6,                // 4 Square Micrometer
-            1.e-16,               // 5 Hecrate
-            0.0038610188e+0,      // 6 Square Mile
-            1 / 3097602.26e+0,    // 7 Square Yard
-            1 / 9.e+0,            // 8 Square Foot
-            1 / 144.e+0,          // 9 Square Inch
-            1 / 1.594225079e-7    // 10 Acre
+            1.e+6,             // 1 Square KiloMeter
+            1.e-10,            // 2 Square Centimeter
+            1.e-2,             // 3 Square Millimeter
+            1.e-6,             // 4 Square Micrometer
+            1.e-16,            // 5 Hecrate
+            0.0038610188e+0,   // 6 Square Mile
+            1 / 3097602.26e+0, // 7 Square Yard
+            1 / 9.e+0,         // 8 Square Foot
+            1 / 144.e+0,       // 9 Square Inch
+            1 / 1.594225079e-7 // 10 Acre
     };
     elements.resize(11);
     elements[position_of_element] = input_element;
