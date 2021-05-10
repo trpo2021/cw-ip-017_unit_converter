@@ -146,3 +146,30 @@ void temp(
     }
     }
 }
+
+void area(
+        vector<double>& elements, double input_element, int position_of_element)
+{
+    int i;
+    double coefficients[11]{
+            1,
+            1.e+6,                // 1 Square KiloMeter
+            1.e+10,               // 2 Square Centimeter
+            1.e+2,                // 3 Square Millimeter
+            1.e+6,                // 4 Square Micrometer
+            1.e-16,               // 5 Hecrate
+            0.0038610188e+0,      // 6 Square Mile
+            1 / 3097602.26e+0,    // 7 Square Yard
+            1 / 9.e+0,            // 8 Square Foot
+            1 / 144.e+0,          // 9 Square Inch
+            1 / 1.594225079E-7e+0 // 10 Acre
+    };
+    elements.resize(11);
+    elements[position_of_element] = input_element;
+    for (i = position_of_element; i > 0; —i) {
+        elements[i - 1] = elements[i] * coefficients[i];
+    }
+    for (i = position_of_element; i < 10; i++) {
+        elements[i + 1] = elements[i] / coefficients[i + 1];
+    }
+}

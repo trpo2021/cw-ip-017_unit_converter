@@ -38,4 +38,8 @@ void temp(
         double input_element,
         int position_of_element);
 
+void area(
+        vector<double>& elements,
+        double input_element,
+        int position_of_element);
 #endif
