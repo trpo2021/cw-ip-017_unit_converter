@@ -3,6 +3,8 @@
 #include <math.h>
 #include <sstream>
 #include <string>
+#include <iomanip>
+#include <fstream>
 #include <vector>
 #define UI_FILE "../converter/Unit_converter.glade"
 
@@ -68,17 +70,20 @@ void temp(
     }
 }
 
-string filename[] = { "area.txt","length.txt","time.txt","weight.txt","volume.txt" };
+string filename[]
+        = {"area.txt", "length.txt", "time.txt", "weight.txt", "volume.txt"};
 
 void parametr(
-	vector<double>& elements, double input_element, int position_of_element, int file_num) 
+        vector<double>& elements,
+        double input_element,
+        int position_of_element,
+        int file_num)
 {
     string str;
     int i = 0;
     vector<double> coefficients;
     ifstream file(filename[file_num].c_str());
-    while (getline(file, str))
-    {
+    while (getline(file, str)) {
         coefficients.push_back(atof(str.c_str()));
     }
     elements.resize(coefficients.size());

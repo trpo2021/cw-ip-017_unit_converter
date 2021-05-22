@@ -24,9 +24,9 @@ void temp(
         int position_of_element);
 
 void parametr(
-	vector<double> &elements, 
-	double input_element,
+        vector<double>& elements,
+        double input_element,
         int position_of_element,
-	int file_num);
+        int file_num);
 
 #endif
