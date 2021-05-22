@@ -71,7 +71,11 @@ void temp(
 }
 
 string filename[]
-        = {"area.txt", "length.txt", "time.txt", "weight.txt", "volume.txt"};
+        = {"..\\res\\area.txt",
+           "..\\res\\length.txt",
+           "..\\res\\time.txt",
+           "..\\res\\weight.txt",
+           "..\\res\\volume.txt"};
 
 void parametr(
         vector<double>& elements,
