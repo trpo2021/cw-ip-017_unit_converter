@@ -8,31 +8,6 @@
 
 #define UNUSED(x) (void)(x);
 
-void weight_calc(
-        vector<double>& elements, double input_element, int position_of_element)
-{
-    int i;
-    double coefficients[10]{
-            1 / 1.e+3,               // 1 gr
-            1 / 1.e+3,               // 2 mili
-            1.e+9,                   // 3 metric ton
-            1.01604608e+0,           // 4 long ton
-            1 / 1.12e+0,             // 5 short ton
-            1 / 2000e+0,             // 6 pound
-            1 / 16e+0,               // 7 ounce
-            1 / 141.7475e+0,         // 8 carrat
-            1 / 1.20442733033504e+23 // 9 atom
-    };
-    elements.resize(10);
-    elements[position_of_element] = input_element;
-    for (i = position_of_element; i > 0; --i) {
-        elements[i - 1] = elements[i] * coefficients[i - 1];
-    }
-    for (i = position_of_element; i < 10; i++) {
-        elements[i + 1] = elements[i] / coefficients[i];
-    }
-}
-
 void from_double_to_char(
         vector<double> elements,
         int i,
@@ -45,33 +20,6 @@ void from_double_to_char(
     ss >> temprory;
     input_char = temprory.c_str();
     gtk_entry_set_text(output, input_char);
-}
-
-void time(
-        vector<double>& elements, double input_element, int position_of_element)
-{
-    int i;
-    double coefficients[11]{
-            1 / (1.e+3),    // 0 sec
-            1 / (1.e+3),    // 1 milisec
-            1 / (1.e+3),    // 2 microsec
-            1 / (1.e+3),    // 3 nanosec
-            1 / (1.e+3),    // 4 picasec
-            60000000000000, // 5 minutes
-            60,             // 6 hours
-            24,             // 7 days
-            7,              // 8 weeks
-            29.5 / 7,       // 9 months
-            12,             // 10 years
-    };
-    elements.resize(11);
-    elements[position_of_element] = input_element;
-    for (i = position_of_element; i > 0; --i) {
-        elements[i - 1] = elements[i] * coefficients[i];
-    }
-    for (i = position_of_element; i < 10; i++) {
-        elements[i + 1] = elements[i] / coefficients[i + 1];
-    }
 }
 
 double Kelvin_Celsius(double parametr, bool mable)
@@ -91,33 +39,6 @@ double From_Fahrenheit(double parametr, bool temp)
     else
         parametr -= 32;
     return parametr / 1.8;
-}
-
-void length(
-        vector<double>& elements, double input_element, int position_of_element)
-{
-    int i;
-    double coefficients[11]{
-            1,
-            1.e+3,                 // 1 Kilometer
-            1.e-5,                 // 2 Centimeter
-            1.e-1,                 // 3 Millimeter
-            1.e-3,                 // 4 Micrometer
-            1.e-3,                 // 5 Nanometer
-            1609350000000e+0,      // 6 Mile
-            1 / 1760.0065617e+0,   // 7 Yard
-            1 / 3.e+0,             // 8 Foot
-            1 / 12.e+0,            // 9 Inch
-            372466929133858300.e+0 // 10 Light Year
-    };
-    elements.resize(11);
-    elements[position_of_element] = input_element;
-    for (i = position_of_element; i > 0; --i) {
-        elements[i - 1] = elements[i] * coefficients[i];
-    }
-    for (i = position_of_element; i < 10; i++) {
-        elements[i + 1] = elements[i] / coefficients[i + 1];
-    }
 }
 
 void temp(
@@ -147,29 +68,25 @@ void temp(
     }
 }
 
-void area(
-        vector<double>& elements, double input_element, int position_of_element)
+string filename[] = { "area.txt","length.txt","time.txt","weight.txt","volume.txt" };
+
+void parametr(
+	vector<double>& elements, double input_element, int position_of_element, int file_num) 
 {
-    int i;
-    double coefficients[11]{
-            1,
-            1.e+6,             // 1 Square KiloMeter
-            1.e-10,            // 2 Square Centimeter
-            1.e-2,             // 3 Square Millimeter
-            1.e-6,             // 4 Square Micrometer
-            1.e-16,            // 5 Hecrate
-            0.0038610188e+0,   // 6 Square Mile
-            1 / 3097602.26e+0, // 7 Square Yard
-            1 / 9.e+0,         // 8 Square Foot
-            1 / 144.e+0,       // 9 Square Inch
-            1 / 1.594225079e-7 // 10 Acre
-    };
-    elements.resize(11);
+    string str;
+    int i = 0;
+    vector<double> coefficients;
+    ifstream file(filename[file_num].c_str());
+    while (getline(file, str))
+    {
+        coefficients.push_back(atof(str.c_str()));
+    }
+    elements.resize(coefficients.size());
     elements[position_of_element] = input_element;
     for (i = position_of_element; i > 0; --i) {
         elements[i - 1] = elements[i] * coefficients[i];
     }
-    for (i = position_of_element; i < 10; i++) {
+    for (i = position_of_element; i < coefficients.size() - 1; i++) {
         elements[i + 1] = elements[i] / coefficients[i + 1];
     }
 }
