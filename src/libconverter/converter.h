@@ -1,16 +1,17 @@
 #ifndef CONVERTER_LIB
 #define CONVERTER_LIB
-#include <gtk/gtk.h>
 #include <sstream>
 #include <string>
 #include <vector>
 using namespace std;
 
-void from_double_to_char(
+typedef char gchar;
+
+string from_double_to_char(
         vector<double> elements,
-        int i,
-        const gchar* input_char,
-        GtkEntry* output);
+        int i);
+		
+int check(const char* a,vector<double>& elements, int position_of_element, int& file_num);
 
 double Kelvin_Celsius(double parametr, bool mable);
 
@@ -23,10 +24,6 @@ void temp(
         double input_element,
         int position_of_element);
 
-void parametr(
-        vector<double>& elements,
-        double input_element,
-        int position_of_element,
-        int file_num);
+void coeff_param(vector<double>& elements, double input_element, int position_of_element, int file_num);
 
 #endif
