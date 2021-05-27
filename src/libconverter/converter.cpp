@@ -86,6 +86,7 @@ void temp(
 
 string filename[6]
         = {"..\\src\\res\\length.txt",
+			"",
            "..\\src\\res\\area.txt",
            "..\\src\\res\\volume.txt",
            "..\\src\\res\\weight.txt",
