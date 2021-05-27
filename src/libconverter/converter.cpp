@@ -38,14 +38,6 @@ string from_double_to_char(
     return temprory;
 }
 
-int check(const char* a,vector<double>& elements, int position_of_element, int& file_num) {
-	if (atof(a)) {
-			coeff_param(elements, atof(a), position_of_element, file_num);
-	}
-	else return 1;
-	return 0;
-};
-
 double Kelvin_Celsius(double parametr, bool mable)
 {
     return parametr + pow(-1, mable) * 273;
@@ -91,28 +83,65 @@ void temp(
     }
     }
 }
-string filename[6] = { "..\\src\\res\\length.txt","..\\src\\res\\area.txt","..\\src\\res\\volume.txt","..\\src\\res\\weight.txt","..\\src\\res\\time.txt" };
 
-void coeff_param(vector<double>& elements, double input_element, int position_of_element, int file_num) {
+string filename[6]
+        = {"..\\src\\res\\length.txt",
+           "..\\src\\res\\area.txt",
+           "..\\src\\res\\volume.txt",
+           "..\\src\\res\\weight.txt",
+           "..\\src\\res\\time.txt"};
+
+
+void coeff_param(
+        vector<double>& elements,
+        double input_element,
+        int position_of_element,
+        int file_num)
+{
     string str;
     int i = 0;
+    bool k = true;
     vector<double> coefficients;
 
     ifstream file(filename[file_num].c_str());
-	cout << "lol" << endl;
-    while (getline(file, str))
-    {
-		cout << "lol" << endl;
-        coefficients.push_back(atof(str.c_str()));
-    }
 
+    while (getline(file, str)) {
+        coefficients.push_back(stod(str.c_str()));
+    }
     elements.resize(coefficients.size());
     elements[position_of_element] = input_element;
     for (i = position_of_element; i > 0; --i) {
         elements[i - 1] = elements[i] * coefficients[i];
     }
-	int n = coefficients.size() - 1;
-    for (i = position_of_element; i < n; i++) {
+    for (i = position_of_element; i < coefficients.size() - 1; i++) {
         elements[i + 1] = elements[i] / coefficients[i + 1];
     }
 }
+
+int check_strock(string str)
+{
+    string str_a = "0123456789.";
+    string str_char;
+    while (str != "") {
+        str_char = str.substr(0, 1);
+        str.erase(0, 1);
+        if (str_a.find(str_char) == -1) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int check(
+        vector<double>& elements,
+        const char* a,
+        int position_of_element,
+        int& file_num)
+{
+    string str = a;
+    if (check_strock(str) == 1)
+        coeff_param(elements, stod(a), position_of_element, file_num);
+    else
+        return 1;
+    return 0;
+};
