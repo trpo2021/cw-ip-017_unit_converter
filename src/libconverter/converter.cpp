@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <cstdlib>
 #define UNUSED(x) (void)(x);
 
 typedef char gchar;
