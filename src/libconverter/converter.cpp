@@ -85,11 +85,11 @@ void temp(
 }
 
 string filename[6]
-        = {"../src/res/length.txt",
-           "../src/res/area.txt",
-           "../src/res/volume.txt",
-           "../src/res/weight.txt",
-           "../src/res/time.txt"};
+        = {"..\\src\\res\\length.txt",
+           "..\\src\\res\\area.txt",
+           "..\\src\\res\\volume.txt",
+           "..\\src\\res\\weight.txt",
+           "..\\src\\res\\time.txt"};
 
 
 void coeff_param(
