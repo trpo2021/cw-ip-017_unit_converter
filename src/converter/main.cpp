@@ -76,7 +76,7 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
 
 		if(strcmp(gtk_combo_box_text_get_active_text(object_of_types1), Units[type][i]) == 0){
 			
-			if(type!=1){ if(check(input_char,elements,i,type)) gtk_entry_set_text(output,"I got the text, try again");}
+			if(type!=1){ check(elements,input_char,i,type);}
 			else{temp(elements, input_element, i);}
 		}
 	}
