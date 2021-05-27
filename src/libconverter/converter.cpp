@@ -140,7 +140,7 @@ int check(
 {
     string str = a;
     if (check_strock(str) == 1)
-        coeff_param(elements, stod(a), position_of_element, file_num);
+        coeff_param(elements, atof(a), position_of_element, file_num);
     else
         return 1;
     return 0;
