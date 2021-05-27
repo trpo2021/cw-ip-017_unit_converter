@@ -85,11 +85,11 @@ void temp(
 }
 
 string filename[6]
-        = {"..\\src\\res\\length.txt",
-           "..\\src\\res\\area.txt",
-           "..\\src\\res\\volume.txt",
-           "..\\src\\res\\weight.txt",
-           "..\\src\\res\\time.txt"};
+        = {"../src/res/length.txt",
+           "../src/res/area.txt",
+           "../src/res/volume.txt",
+           "../src/res/weight.txt",
+           "../src/res/time.txt"};
 
 
 void coeff_param(
@@ -99,8 +99,7 @@ void coeff_param(
         int file_num)
 {
     string str;
-    int i = 0;
-    bool k = true;
+    double i = 0;
     vector<double> coefficients;
 
     ifstream file(filename[file_num].c_str());
@@ -125,7 +124,7 @@ int check_strock(string str)
     while (str != "") {
         str_char = str.substr(0, 1);
         str.erase(0, 1);
-        if (str_a.find(str_char) == -1) {
+        if (str_a.find(str_char) == std::string::npos) {
             return 0;
         }
     }
