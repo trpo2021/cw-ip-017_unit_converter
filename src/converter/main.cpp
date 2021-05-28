@@ -70,18 +70,18 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
     const char* input_char = gtk_entry_get_text(input);
     vector<double> elements(1);
     double input_element = strtod(input_char, NULL);
-	
+	bool pass = true;
 		
 	for(i = 0; i < size_units[type]; ++i){
 
 		if(strcmp(gtk_combo_box_text_get_active_text(object_of_types1), Units[type][i]) == 0){
 			
-			if(type!=1){ check(elements,input_char,i,type);}
+			if(type!=1){ if(check(elements,input_char,i,type)){ gtk_entry_set_text(output, "Uncorrectly input");pass = false;}}
 			else{temp(elements, input_element, i);}
 		}
 	}
 	for(i = 0; i < size_units[type]; ++i){
-		if(strcmp(gtk_combo_box_text_get_active_text(object_of_types2), Units[type][i]) == 0){
+		if(strcmp(gtk_combo_box_text_get_active_text(object_of_types2), Units[type][i]) == 0 && pass == true){
 			cout << "lol" << endl;
 			input_string = from_double_to_char(elements, i);
 			input_char = input_string.c_str();
