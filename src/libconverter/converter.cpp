@@ -1,12 +1,12 @@
 #include "converter.h"
+#include <cstdlib>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 #include <math.h>
 #include <sstream>
-#include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
 #define UNUSED(x) (void)(x);
 
 typedef char gchar;
@@ -15,21 +15,18 @@ typedef char gchar;
         vector<double> elements,
         int i)
 {
-	double element = elements[i];
-	string input_string;
+        double element = elements[i];
+        string input_string;
     string temprory;
     stringstream ss;
-	cout << "lol" << endl;
+        cout << "lol" << endl;
     ss << element;
-
     ss >> input_string;
-	
+
     return input_string.c_str();
 }*/
 
-string from_double_to_char(
-        vector<double> elements,
-        int i)
+string from_double_to_char(vector<double> elements, int i)
 {
     string temprory;
     stringstream ss;
@@ -86,12 +83,11 @@ void temp(
 
 string filename[6]
         = {"..\\src\\res\\length.txt",
-			"",
+           "",
            "..\\src\\res\\area.txt",
            "..\\src\\res\\volume.txt",
            "..\\src\\res\\weight.txt",
            "..\\src\\res\\time.txt"};
-
 
 void coeff_param(
         vector<double>& elements,
@@ -139,11 +135,10 @@ int check(
         int& file_num)
 {
     string str = input_elements;
-    if (check_strock(str) == 1){
-	double input = stod(str);    
+    if (check_strock(str) == 1) {
+        double input = stod(str);
         coeff_param(elements, input, position_of_element, file_num);
-    }
-    else
+    } else
         return 1;
     return 0;
 };

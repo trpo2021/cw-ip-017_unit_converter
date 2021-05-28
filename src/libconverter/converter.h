@@ -7,10 +7,8 @@ using namespace std;
 
 typedef char gchar;
 
-string from_double_to_char(
-        vector<double> elements,
-        int i);
-		
+string from_double_to_char(vector<double> elements, int i);
+
 double Kelvin_Celsius(double parametr, bool mable);
 
 double In_Fahrenheit(double parametr, bool temp);
@@ -22,7 +20,11 @@ void temp(
         double input_element,
         int position_of_element);
 
-void coeff_param(vector<double>& elements, double input_element, int position_of_element, int file_num);
+void coeff_param(
+        vector<double>& elements,
+        double input_element,
+        int position_of_element,
+        int file_num);
 
 int check_strock(string str);
 
