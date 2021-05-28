@@ -120,7 +120,7 @@ void coeff_param(
 
 int check_strock(string str)
 {
-    string str_a = "0123456789.";
+    string str_a = "0123456789,";
     string str_char;
     while (str != "") {
         str_char = str.substr(0, 1);
@@ -139,8 +139,9 @@ int check(
         int& file_num)
 {
     string str = a;
+	double b = stod(str);
     if (check_strock(str) == 1)
-        coeff_param(elements, atof(a), position_of_element, file_num);
+        coeff_param(elements, b, position_of_element, file_num);
     else
         return 1;
     return 0;

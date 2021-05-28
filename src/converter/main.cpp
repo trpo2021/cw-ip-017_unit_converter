@@ -82,10 +82,8 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
 	}
 	for(i = 0; i < size_units[type]; ++i){
 		if(strcmp(gtk_combo_box_text_get_active_text(object_of_types2), Units[type][i]) == 0 && pass == true){
-			cout << "lol" << endl;
 			input_string = from_double_to_char(elements, i);
 			input_char = input_string.c_str();
-			cout << "lol" << endl;
 			gtk_entry_set_text(output, input_char);
 	}
 	}
