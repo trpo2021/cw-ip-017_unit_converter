@@ -134,14 +134,15 @@ int check_strock(string str)
 
 int check(
         vector<double>& elements,
-        const char* a,
+        const char* input_elements,
         int position_of_element,
         int& file_num)
 {
-    string str = a;
-	double b = stod(str);
-    if (check_strock(str) == 1)
-        coeff_param(elements, b, position_of_element, file_num);
+    string str = input_elements;
+    if (check_strock(str) == 1){
+	double input = stod(str);    
+        coeff_param(elements, input, position_of_element, file_num);
+    }
     else
         return 1;
     return 0;
