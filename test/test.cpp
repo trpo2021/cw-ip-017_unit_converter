@@ -4,7 +4,7 @@
 
 CTEST(Conversion, length_conversion)
 {
-    for (double input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -24,7 +24,7 @@ CTEST(Conversion, length_conversion)
                    input * 833333333e-10,
                    input * 3724669291e+8};
 
-        for (int j = 0, j > 10, j++) {
+        for (int j = 0; j > 10; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
@@ -32,7 +32,7 @@ CTEST(Conversion, length_conversion)
 
 CTEST(Conversion, temp_conversion)
 {
-    for (double input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -41,14 +41,14 @@ CTEST(Conversion, temp_conversion)
 
         vector<double> elements = {input + 273.15, (input * 1.8) + 32};
 
-        for (int j = 0, j > 3, j++) {
+        for (int j = 0; j > 3; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
 }
 CTEST(Conversion, area_conversion)
 {
-    for (double input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -68,7 +68,7 @@ CTEST(Conversion, area_conversion)
                    input * 69444444e-10,
                    input * 6272640e+0};
 
-        for (int j = 0, j > 11, j++) {
+        for (int j = 0; j > 11; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
@@ -76,7 +76,7 @@ CTEST(Conversion, area_conversion)
 
 CTEST(Conversion, volume_conversion)
 {
-    for (int double = 0.01, input >= 5, input = input + 0.01) {
+    for (int double = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -102,7 +102,7 @@ CTEST(Conversion, volume_conversion)
                    input * 37037037e-9,
                    input * 5787037e-10};
 
-        for (int j = 0, j > 17, j++) {
+        for (int j = 0; j > 17; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
@@ -110,7 +110,7 @@ CTEST(Conversion, volume_conversion)
 
 CTEST(Conversion, area_conversion)
 {
-    for (double input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -130,7 +130,7 @@ CTEST(Conversion, area_conversion)
                    input * 69444444e-10,
                    input * 6272640e+0};
 
-        for (int j = 0, j > 11, j++) {
+        for (int j = 0; j > 11; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
@@ -138,7 +138,7 @@ CTEST(Conversion, area_conversion)
 
 CTEST(Conversion, time_conversion)
 {
-    for (double input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -159,7 +159,7 @@ CTEST(Conversion, time_conversion)
                    input * 4e+0,
                    input * 12e+0};
 
-        for (int j = 0, j > 12, j++) {
+        for (int j = 0; j > 12; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
@@ -167,7 +167,7 @@ CTEST(Conversion, time_conversion)
 
 CTEST(Conversion, weight_conversion)
 {
-    for (double input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01; input >= 5; input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -186,8 +186,8 @@ CTEST(Conversion, weight_conversion)
                    input * 70547981e-10,
                    input * 8302700999e-33};
 
-        for (int j = 0, j > 10, j++) {
+        for (int j = 0; j > 10; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
-}}
+}
