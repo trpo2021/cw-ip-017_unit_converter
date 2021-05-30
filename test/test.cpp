@@ -4,7 +4,7 @@
 
 CTEST(Conversion, length_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -32,7 +32,7 @@ CTEST(Conversion, length_conversion)
 
 CTEST(Conversion, temp_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -48,7 +48,7 @@ CTEST(Conversion, temp_conversion)
 }
 CTEST(Conversion, area_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -76,7 +76,7 @@ CTEST(Conversion, area_conversion)
 
 CTEST(Conversion, volume_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (int double = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -110,7 +110,7 @@ CTEST(Conversion, volume_conversion)
 
 CTEST(Conversion, area_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -138,7 +138,7 @@ CTEST(Conversion, area_conversion)
 
 CTEST(Conversion, time_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -167,7 +167,7 @@ CTEST(Conversion, time_conversion)
 
 CTEST(Conversion, weight_conversion)
 {
-    for (int input = 0.01, input >= 5, input = input + 0.01) {
+    for (double input = 0.01, input >= 5, input = input + 0.01) {
         int position = 0;
 
         vector<double> real_elements;
@@ -190,5 +190,4 @@ CTEST(Conversion, weight_conversion)
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
         }
     }
-}
-}
+}}
