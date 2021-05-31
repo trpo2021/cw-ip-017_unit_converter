@@ -11,21 +11,6 @@
 
 typedef char gchar;
 
-/*const gchar* from_double_to_char(
-        vector<double> elements,
-        int i)
-{
-        double element = elements[i];
-        string input_string;
-    string temprory;
-    stringstream ss;
-        cout << "lol" << endl;
-    ss << element;
-    ss >> input_string;
-
-    return input_string.c_str();
-}*/
-
 string from_double_to_char(vector<double> elements, int i)
 {
     string temprory;
@@ -135,7 +120,7 @@ int check(
         int& file_num)
 {
     string str = input_elements;
-    if (check_strock(str) == 1) {
+    if (check_strock(str) == 1 && !str.empty()) {
         double input = stod(str);
         coeff_param(elements, input, position_of_element, file_num);
     } else
