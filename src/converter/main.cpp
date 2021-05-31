@@ -110,7 +110,7 @@ const gchar** Units[6] = {Lenght, Temp, Area, Volume, Weight, Time};
 void change_button_clicked(GtkWidget* widget, gpointer data)
 {
 	gtk_combo_box_text_remove_all(object_of_types1);
-    gtk_combo_box_text_remove_all(object_of_types2);
+        gtk_combo_box_text_remove_all(object_of_types2);
 	
 	int type = gtk_combo_box_get_active(types);
 
@@ -124,6 +124,7 @@ void change_button_clicked(GtkWidget* widget, gpointer data)
 
 void calc_button_clicked(GtkWidget* widget, gpointer data)
 {
+	if (gtk_combo_box_text_get_active_text(object_of_types1) != NULL && gtk_combo_box_text_get_active_text(object_of_types2) != NULL){
 	int type = gtk_combo_box_get_active(types);
 	int i;
 	string input_string;
@@ -150,6 +151,7 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
     UNUSED(input_element);
     UNUSED(widget);
     UNUSED(data);
+	}
 }
 
 static gboolean cb_delete(GtkWidget* window, gpointer data)
