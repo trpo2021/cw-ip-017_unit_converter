@@ -30,27 +30,87 @@ GtkCellRendererText* time_not_timeh;
 
 GtkComboBoxText *Types[2] = { object_of_types1, object_of_types2 };
 
-	
-
-int size_units[6] = { 11, 3, 11, 16, 10, 11 };
 
 
-const gchar* Lenght[11] = { "Meter", "Kilometer", "Centimeter", "Milimeter", "Micrometer", "Nanometer", "Mile", "Yard", "Foot", "Inch",  "Light Year" };
-const gchar* Temp[3] = { "Celsius", "Kelvin", "Fahrenheit" };
-const gchar* Area[11] = { "Squer Meter", "Squer Kilometer", "Squer Centimeter", "Squer Milimeter", "Squer Micrometer", "Hectare", "Squer Mile", "Squer Yard", "Squer Foot", "Squer Inch", "Acre" };
-const gchar* Volume[16] = { "Cubic Meter", "Cubic Kilometer", "Cubic Centimeter", "Cubic Milimeter", "Liter", "Mililiter", "US Gallon", "US Quart", "US Pint", "US Cup", "US Fluid Ounce", "US Table Spoon", "Cubic Mile", "Cubic Yard", "Cubic Foot", "Cubic Inch" };
-const gchar* Weight[10] = { "Kilogram", "Gram", "Miliram", "Metric Ton", "Long Ton", "Short Ton", "Pound", "Ounce", "Carrat", "Atomic Mass Unit" };
-const gchar* Time[11] = { "Second", "Milisecond", "Microsecond", "Nanosecond", "Picosecond", "Minute", "Hour", "Day", "Week", "Month", "Year" };
+int size_units[6] = { 11, 3, 11, 17, 10, 11 };
 
 
-const gchar** Units[6] = { Lenght, Temp, Area, Volume, Weight, Time };
+const gchar* Lenght[11]
+        = {"Meter",
+           "Kilometer",
+           "Centimeter",
+           "Milimeter",
+           "Micrometer",
+           "Nanometer",
+           "Mile",
+           "Yard",
+           "Foot",
+           "Inch",
+           "Light Year"};
+const gchar* Temp[3] = {"Celsius", "Kelvin", "Fahrenheit"};
+const gchar* Area[11]
+        = {"Squer Meter",
+           "Squer Kilometer",
+           "Squer Centimeter",
+           "Squer Milimeter",
+           "Squer Micrometer",
+           "Hectare",
+           "Squer Mile",
+           "Squer Yard",
+           "Squer Foot",
+           "Squer Inch",
+           "Acre"};
+const gchar* Volume[17]
+        = {"Cubic Meter",
+           "Cubic Kilometer",
+           "Cubic Centimeter",
+           "Cubic Milimeter",
+           "Liter",
+           "Mililiter",
+           "US Gallon",
+           "US Quart",
+           "US Pint",
+           "US Cup",
+           "US Fluid Ounce",
+           "US Table Spoon",
+           "US Tea Spoon",
+           "Cubic Mile",
+           "Cubic Yard",
+           "Cubic Foot",
+           "Cubic Inch"};
+const gchar* Weight[10]
+        = {"Kilogram",
+           "Gram",
+           "Miliram",
+           "Metric Ton",
+           "Long Ton",
+           "Short Ton",
+           "Pound",
+           "Ounce",
+           "Carrat",
+           "Atomic Mass Unit"};
+const gchar* Time[11]
+        = {"Second",
+           "Milisecond",
+           "Microsecond",
+           "Nanosecond",
+           "Picosecond",
+           "Minute",
+           "Hour",
+           "Day",
+           "Week",
+           "Month",
+           "Year"};
+
+
+const gchar** Units[6] = {Lenght, Temp, Area, Volume, Weight, Time};
 
 #define UNUSED(x) (void)(x);
 
 void change_button_clicked(GtkWidget* widget, gpointer data)
 {
 	gtk_combo_box_text_remove_all(object_of_types1);
-    gtk_combo_box_text_remove_all(object_of_types2);
+        gtk_combo_box_text_remove_all(object_of_types2);
 	
 	int type = gtk_combo_box_get_active(types);
 
@@ -64,12 +124,12 @@ void change_button_clicked(GtkWidget* widget, gpointer data)
 
 void calc_button_clicked(GtkWidget* widget, gpointer data)
 {
+	if (gtk_combo_box_text_get_active_text(object_of_types1) != NULL && gtk_combo_box_text_get_active_text(object_of_types2) != NULL){
 	int type = gtk_combo_box_get_active(types);
 	int i;
 	string input_string;
-    const char* input_char = gtk_entry_get_text(input);
-    vector<double> elements(1);
-    double input_element = strtod(input_char, NULL);
+        const char* input_char = gtk_entry_get_text(input);
+        vector<double> elements(1);
 	bool pass = true;
 		
 	for(i = 0; i < size_units[type]; ++i){
@@ -77,7 +137,14 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
 		if(strcmp(gtk_combo_box_text_get_active_text(object_of_types1), Units[type][i]) == 0){
 			
 			if(type!=1){ if(check(elements,input_char,i,type)){ gtk_entry_set_text(output, "Uncorrectly input");pass = false;}}
-			else{temp(elements, input_element, i);}
+			else
+			{temp(elements, input_char, i); 
+			input_string = input_char;
+                        if (check_strock(input_string) == 0 || input_string == ""){
+				gtk_entry_set_text(output, "Uncorrectly input"); 
+				pass = false;
+				}
+			}
 		}
 	}
 	for(i = 0; i < size_units[type]; ++i){
@@ -87,9 +154,9 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
 			gtk_entry_set_text(output, input_char);
 	}
 	}
-    UNUSED(input_element);
     UNUSED(widget);
     UNUSED(data);
+	}
 }
 
 static gboolean cb_delete(GtkWidget* window, gpointer data)
