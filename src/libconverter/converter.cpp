@@ -11,21 +11,6 @@
 
 typedef char gchar;
 
-/*const gchar* from_double_to_char(
-        vector<double> elements,
-        int i)
-{
-        double element = elements[i];
-        string input_string;
-    string temprory;
-    stringstream ss;
-        cout << "lol" << endl;
-    ss << element;
-    ss >> input_string;
-
-    return input_string.c_str();
-}*/
-
 string from_double_to_char(vector<double> elements, int i)
 {
     string temprory;
@@ -55,29 +40,35 @@ double From_Fahrenheit(double parametr, bool temp)
 }
 
 void temp(
-        vector<double>& elements, double input_element, int position_of_element)
+        vector<double>& elements,
+        const char* input_char,
+        int position_of_element)
 {
-    elements.resize(3);
-    switch (position_of_element) {
-    case 0: {
-        elements[0] = input_element;
-        elements[1] = Kelvin_Celsius(input_element, false);
-        elements[2] = In_Fahrenheit(input_element, false);
-        break;
-    }
-    case 1: {
-        elements[0] = Kelvin_Celsius(input_element, true);
-        elements[1] = input_element;
-        elements[2] = In_Fahrenheit(input_element, true);
-        break;
-    }
-    case 2: {
-        elements[0] = From_Fahrenheit(input_element, false);
-        ;
-        elements[1] = From_Fahrenheit(input_element, true);
-        elements[2] = input_element;
-        break;
-    }
+    string str = input_char;
+    if (check_strock(str) == 1 && !str.empty()) {
+        double input_element = stod(str);
+        elements.resize(3);
+        switch (position_of_element) {
+        case 0: {
+            elements[0] = input_element;
+            elements[1] = Kelvin_Celsius(input_element, false);
+            elements[2] = In_Fahrenheit(input_element, false);
+            break;
+        }
+        case 1: {
+            elements[0] = Kelvin_Celsius(input_element, true);
+            elements[1] = input_element;
+            elements[2] = In_Fahrenheit(input_element, true);
+            break;
+        }
+        case 2: {
+            elements[0] = From_Fahrenheit(input_element, false);
+            ;
+            elements[1] = From_Fahrenheit(input_element, true);
+            elements[2] = input_element;
+            break;
+        }
+        }
     }
 }
 
@@ -135,7 +126,7 @@ int check(
         int& file_num)
 {
     string str = input_elements;
-    if (check_strock(str) == 1) {
+    if (check_strock(str) == 1 && !str.empty()) {
         double input = stod(str);
         coeff_param(elements, input, position_of_element, file_num);
     } else
