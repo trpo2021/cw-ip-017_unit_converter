@@ -40,8 +40,11 @@ double From_Fahrenheit(double parametr, bool temp)
 }
 
 void temp(
-        vector<double>& elements, double input_element, int position_of_element)
+       vector<double>& elements, const char* input_char, int position_of_element)
 {
+    string str = input_char;
+    if (check_strock(str) == 1 && !str.empty()) {
+    double input_element = stod(str);
     elements.resize(3);
     switch (position_of_element) {
     case 0: {
@@ -62,6 +65,7 @@ void temp(
         elements[1] = From_Fahrenheit(input_element, true);
         elements[2] = input_element;
         break;
+    }
     }
     }
 }

@@ -17,7 +17,7 @@ double From_Fahrenheit(double parametr, bool temp);
 
 void temp(
         vector<double>& elements,
-        double input_element,
+        const char* input_char,
         int position_of_element);
 
 void coeff_param(
