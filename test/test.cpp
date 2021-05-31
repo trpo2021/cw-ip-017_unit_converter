@@ -160,9 +160,9 @@ CTEST(Conversion, time_conversion)
                 input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0
                         / 7e+0,
                 input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0
-                        / 7e+0 / 4e+0,
+                        / 7e+0 / 43482142857e-10,
                 input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0
-                        / 7e+0 / 4e+0 / 12e+0};
+                        / 7e+0 / 43482142857e-10 / 12e+0};
 
         for (int j = 0; j < 11; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
@@ -195,7 +195,7 @@ CTEST(Conversion, weight_conversion)
                            / 8928571429e-10 / 5e-4 / 625e-4 / 70547981e-10,
                    input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8
                            / 8928571429e-10 / 5e-4 / 625e-4 / 70547981e-10
-                           / 8302700999e-33};
+                           / 83027009995521440000e-43};
 
         for (int j = 0; j < 10; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
