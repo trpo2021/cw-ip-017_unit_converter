@@ -4,129 +4,202 @@
 
 CTEST(Conversion, length_conversion)
 {
-    int input = 1;
+    for (double input = 0.01; input <= 5; input = input + 0.01) {
+        int position = 0;
 
-    int position = 0;
+        vector<double> real_elements;
 
-    vector<double> real_elements;
+        coeff_param(real_elements, input, position, 0);
 
-    length(real_elements, input, position);
+        vector<double> elements
+                = {input / 1e+0,
+                   input / 1e+0 / 1e+3,
+                   input / 1e+0 / 1e+3 / 1e-5,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3 / 1e-3,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3 / 1e-3
+                           / 1609350000000e+0,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3 / 1e-3
+                           / 1609350000000e+0 / 5681797e-10,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3 / 1e-3
+                           / 1609350000000e+0 / 5681797e-10 / 3333333333e-10,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3 / 1e-3
+                           / 1609350000000e+0 / 5681797e-10 / 3333333333e-10
+                           / 833333333e-10,
+                   input / 1e+0 / 1e+3 / 1e-5 / 1e-1 / 1e-3 / 1e-3
+                           / 1609350000000e+0 / 5681797e-10 / 3333333333e-10
+                           / 833333333e-10 / 3724669291e+8};
 
-    vector<double> elements = {
-            1,
-            0.001,
-            1.e+2,
-            1.e+3,
-            1.e+6,
-            1.e+9,
-            1.e+9 / 1609350000000e+0,
-            (1.e+9 / 1609350000000e+0) / (1 / 1760.0065617e+0),
-            ((1.e+9 / 1609350000000e+0) / (1 / 1760.0065617e+0)) / (1 / 3.e+0),
-            (((1.e+9 / 1609350000000e+0) / (1 / 1760.0065617e+0)) / (1 / 3.e+0))
-                    / (1 / 12.e+0),
-            ((((1.e+9 / 1609350000000e+0) / (1 / 1760.0065617e+0))
-              / (1 / 3.e+0))
-             / (1 / 12.e+0))
-                    / 372466929133858300.e+0};
-
-    ASSERT_DBL_NEAR(elements[0], real_elements[0]);
-    ASSERT_DBL_NEAR(elements[1], real_elements[1]);
-    ASSERT_DBL_NEAR(elements[2], real_elements[2]);
-    ASSERT_DBL_NEAR(elements[3], real_elements[3]);
-    ASSERT_DBL_NEAR(elements[4], real_elements[4]);
-    ASSERT_DBL_NEAR(elements[5], real_elements[5]);
-    ASSERT_DBL_NEAR(elements[6], real_elements[6]);
-    ASSERT_DBL_NEAR(elements[7], real_elements[7]);
-    ASSERT_DBL_NEAR(elements[8], real_elements[8]);
-    ASSERT_DBL_NEAR(elements[9], real_elements[9]);
-    ASSERT_DBL_NEAR(elements[10], real_elements[10]);
-}
-
-CTEST(Conversion, time_conversion)
-{
-    int input = 1;
-
-    int position = 0;
-
-    vector<double> real_elements;
-
-    time(real_elements, input, position);
-
-    vector<double> elements
-            = {1,
-               1.e+3,
-               1.e+6,
-               1.e+9,
-               1.e+12,
-               1.e+12 / (6 * 1.e+13),
-               1.e+12 / (36 * 1.e+14),
-               1.e+12 / (36 * 1.e+14 * 24),
-               1.e+12 / (36 * 1.e+14 * 24 * 7),
-               1.e+12 / (36 * 1.e+14 * 24 * 7 * (29.5 / 7)),
-               1.e+12 / (36 * 1.e+14 * 24 * 7 * (29.5 / 7) * 12)};
-
-    ASSERT_DBL_NEAR(elements[0], real_elements[0]);
-    ASSERT_DBL_NEAR(elements[1], real_elements[1]);
-    ASSERT_DBL_NEAR(elements[2], real_elements[2]);
-    ASSERT_DBL_NEAR(elements[3], real_elements[3]);
-    ASSERT_DBL_NEAR(elements[4], real_elements[4]);
-    ASSERT_DBL_NEAR(elements[5], real_elements[5]);
-    ASSERT_DBL_NEAR(elements[6], real_elements[6]);
-    ASSERT_DBL_NEAR(elements[7], real_elements[7]);
-    ASSERT_DBL_NEAR(elements[8], real_elements[8]);
-    ASSERT_DBL_NEAR(elements[9], real_elements[9]);
-    ASSERT_DBL_NEAR(elements[10], real_elements[10]);
-}
-
-CTEST(Conversion, weight_conversion)
-{
-    int input = 1;
-
-    int position = 0;
-
-    vector<double> real_elements;
-
-    weight_calc(real_elements, input, position);
-
-    vector<double> elements = {
-            1,
-            1.e+3,
-            1.e+6,
-            1.e-3,
-            1.e-3 / 1.01604608e+0,
-            (1.e-3 * 1.12e+0) / 1.01604608e+0,
-            (1.e-3 * 1.12e+0 * 2000e+0) / 1.01604608e+0,
-            (1.e-3 * 1.12e+0 * 2000e+0 * 16e+0) / 1.01604608e+0,
-            (1.e-3 * 1.12e+0 * 2000e+0 * 16e+0 * 141.7475e+0) / 1.01604608e+0,
-            (1.e-3 * 1.12e+0 * 2000e+0 * 16e+0 * 141.7475e+0
-             * 1.20442733033504e+23)
-                    / 1.01604608e+0};
-
-    ASSERT_DBL_NEAR(elements[0], real_elements[0]);
-    ASSERT_DBL_NEAR(elements[1], real_elements[1]);
-    ASSERT_DBL_NEAR(elements[2], real_elements[2]);
-    ASSERT_DBL_NEAR(elements[3], real_elements[3]);
-    ASSERT_DBL_NEAR(elements[4], real_elements[4]);
-    ASSERT_DBL_NEAR(elements[5], real_elements[5]);
-    ASSERT_DBL_NEAR(elements[6], real_elements[6]);
-    ASSERT_DBL_NEAR(elements[7], real_elements[7]);
-    ASSERT_DBL_NEAR(elements[8], real_elements[8]);
-    ASSERT_DBL_NEAR(elements[9], real_elements[9]);
+        for (int j = 0; j < 10; j++) {
+            ASSERT_DBL_NEAR(elements[j], real_elements[j]);
+        }
+    }
 }
 
 CTEST(Conversion, temp_conversion)
 {
-    int input = 1;
+    for (double input = 0.01; input <= 5; input = input + 0.01) {
+        int position = 0;
+        vector<double> real_elements;
+        std::stringstream str;
+        str << input;
+        const char* input_char = str.str().c_str();
+        temp(real_elements, input_char, position);
 
-    int position = 0;
+        vector<double> elements = {input, input + 273.15, (input * 1.8) + 32};
 
-    vector<double> real_elements;
+        for (int j = 0; j < 2; j++) {
+            ASSERT_DBL_NEAR(elements[j], real_elements[j]);
+        }
+    }
+}
 
-    temp(real_elements, input, position);
+CTEST(Conversion, volume_conversion)
+{
+    for (double input = 0.01; input <= 5; input = input + 0.01) {
+        int position = 0;
 
-    vector<double> elements = {1, 274.15, 33.8};
+        vector<double> real_elements;
 
-    ASSERT_DBL_NEAR(elements[0], real_elements[0]);
-    ASSERT_DBL_NEAR(elements[1], real_elements[1]);
-    ASSERT_DBL_NEAR(elements[2], real_elements[2]);
+        coeff_param(real_elements, input, position, 3);
+
+        vector<double> elements
+                = {input / 1e+0,
+                   input / 1e+0 / 1e+9,
+                   input / 1e+0 / 1e+9 / 9999999999e-25,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3 / 5e-1,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3 / 5e-1
+                           / 3333333333e-10,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3 / 5e-1
+                           / 3333333333e-10 / 8456579974e+6,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3 / 5e-1
+                           / 3333333333e-10 / 8456579974e+6 / 1834265453e-19,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3 / 5e-1
+                           / 3333333333e-10 / 8456579974e+6 / 1834265453e-19
+                           / 37037037e-9,
+                   input / 1e+0 / 1e+9 / 9999999999e-25 / 1e-3 / 1e+6 / 1e-3
+                           / 378541e-3 / 25e-2 / 5e-1 / 5e-1 / 125e-3 / 5e-1
+                           / 3333333333e-10 / 8456579974e+6 / 1834265453e-19
+                           / 37037037e-9 / 5787037e-10};
+
+        for (int j = 0; j < 16; j++) {
+            ASSERT_DBL_NEAR(elements[j], real_elements[j]);
+        }
+    }
+}
+
+CTEST(Conversion, area_conversion)
+{
+    for (double input = 0.01; input <= 5; input = input + 0.01) {
+        int position = 0;
+
+        vector<double> real_elements;
+
+        coeff_param(real_elements, input, position, 2);
+
+        vector<double> elements = {
+                input / 1e+0,
+                input / 1e+0 / 1e+6,
+                input / 1e+0 / 1e+6 / 1e-10,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6 / 1e+16,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6 / 1e+16 / 258999e-3,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6 / 1e+16 / 258999e-3
+                        / 3228303429e-16,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6 / 1e+16 / 258999e-3
+                        / 3228303429e-1 / 1111111111e-10,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6 / 1e+16 / 258999e-3
+                        / 3228303429e-1 / 1111111111e-10 / 69444444e-10,
+                input / 1e+0 / 1e+6 / 1e-10 / 1e-2 / 1e-6 / 1e+16 / 258999e-3
+                        / 3228303429e-1 / 1111111111e-10 / 69444444e-10
+                        / 6272640e+0};
+
+        for (int j = 0; j < 10; j++) {
+            ASSERT_DBL_NEAR(elements[j], real_elements[j]);
+        }
+    }
+}
+
+CTEST(Conversion, time_conversion)
+{
+    for (double input = 0.01; input <= 5; input = input + 0.01) {
+        int position = 0;
+
+        vector<double> real_elements;
+
+        coeff_param(real_elements, input, position, 5);
+
+        vector<double> elements = {
+                input / 1e+0,
+                input / 1e+0 / 1e-3,
+                input / 1e+0 / 1e-3 / 1e-3,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0
+                        / 7e+0,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0
+                        / 7e+0 / 4e+0,
+                input / 1e+0 / 1e-3 / 1e-3 / 1e-3 / 1e-3 / 6e+13 / 6e+1 / 24e+0
+                        / 7e+0 / 4e+0 / 12e+0};
+
+        for (int j = 0; j < 10; j++) {
+            ASSERT_DBL_NEAR(elements[j], real_elements[j]);
+        }
+    }
+}
+
+CTEST(Conversion, weight_conversion)
+{
+    for (double input = 0.01; input <= 5; input = input + 0.01) {
+        int position = 0;
+
+        vector<double> real_elements;
+
+        coeff_param(real_elements, input, position, 4);
+
+        vector<double> elements
+                = {input / 1e+0,
+                   input / 1e+0 / 1e-3,
+                   input / 1e+0 / 1e-3 / 1e-3,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8
+                           / 8928571429e-10,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8
+                           / 8928571429e-10 / 5e-4,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8
+                           / 8928571429e-10 / 5e-4 / 625e-4,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8
+                           / 8928571429e-10 / 5e-4 / 625e-4 / 70547981e-10,
+                   input / 1e+0 / 1e-3 / 1e-3 / 1e+9 / 101604608e-8
+                           / 8928571429e-10 / 5e-4 / 625e-4 / 70547981e-10
+                           / 8302700999e-33};
+
+        for (int j = 0; j < 9; j++) {
+            ASSERT_DBL_NEAR(elements[j], real_elements[j]);
+        }
+    }
 }
