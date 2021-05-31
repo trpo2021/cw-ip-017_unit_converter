@@ -38,7 +38,7 @@ int size_units[6] = { 11, 3, 11, 16, 10, 11 };
 const gchar* Lenght[11] = { "Meter", "Kilometer", "Centimeter", "Milimeter", "Micrometer", "Nanometer", "Mile", "Yard", "Foot", "Inch",  "Light Year" };
 const gchar* Temp[3] = { "Celsius", "Kelvin", "Fahrenheit" };
 const gchar* Area[11] = { "Squer Meter", "Squer Kilometer", "Squer Centimeter", "Squer Milimeter", "Squer Micrometer", "Hectare", "Squer Mile", "Squer Yard", "Squer Foot", "Squer Inch", "Acre" };
-const gchar* Volume[16] = { "Cubic Meter", "Cubic Kilometer", "Cubic Centimeter", "Cubic Milimeter", "Liter", "Mililiter", "US Gallon", "US Quart", "US Pint", "US Cup", "US Fluid Ounce", "US Table Spoon", "Cubic Mile", "Cubic Yard", "Cubic Foot", "Cubic Inch" };
+const gchar* Volume[17] = { "Cubic Meter", "Cubic Kilometer", "Cubic Centimeter", "Cubic Milimeter", "Liter", "Mililiter", "US Gallon", "US Quart", "US Pint", "US Cup", "US Fluid Ounce", "US Table Spoon", "US Tea Spoon", "Cubic Mile", "Cubic Yard", "Cubic Foot", "Cubic Inch" };
 const gchar* Weight[10] = { "Kilogram", "Gram", "Miliram", "Metric Ton", "Long Ton", "Short Ton", "Pound", "Ounce", "Carrat", "Atomic Mass Unit" };
 const gchar* Time[11] = { "Second", "Milisecond", "Microsecond", "Nanosecond", "Picosecond", "Minute", "Hour", "Day", "Week", "Month", "Year" };
 
@@ -69,8 +69,11 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
 	string input_string;
     const char* input_char = gtk_entry_get_text(input);
     vector<double> elements(1);
-    double input_element = strtod(input_char, NULL);
-	bool pass = true;
+    double input_element = 0;
+    input_string = input_char;
+    if (input_string != "") input_element = strtod(input_char, NULL);
+	
+    	bool pass = true;
 		
 	for(i = 0; i < size_units[type]; ++i){
 
