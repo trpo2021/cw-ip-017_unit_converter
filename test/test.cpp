@@ -43,8 +43,8 @@ CTEST(Conversion, temp_conversion)
         int position = 0;
         vector<double> real_elements;
         std::stringstream str;
-	str << input;
-	const char* input_char = str.str().c_str();
+        str << input;
+        const char* input_char = str.str().c_str();
         temp(real_elements, input_char, position);
 
         vector<double> elements = {input, input + 273.15, (input * 1.8) + 32};
