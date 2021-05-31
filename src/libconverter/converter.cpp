@@ -40,33 +40,35 @@ double From_Fahrenheit(double parametr, bool temp)
 }
 
 void temp(
-       vector<double>& elements, const char* input_char, int position_of_element)
+        vector<double>& elements,
+        const char* input_char,
+        int position_of_element)
 {
     string str = input_char;
     if (check_strock(str) == 1 && !str.empty()) {
-    double input_element = stod(str);
-    elements.resize(3);
-    switch (position_of_element) {
-    case 0: {
-        elements[0] = input_element;
-        elements[1] = Kelvin_Celsius(input_element, false);
-        elements[2] = In_Fahrenheit(input_element, false);
-        break;
-    }
-    case 1: {
-        elements[0] = Kelvin_Celsius(input_element, true);
-        elements[1] = input_element;
-        elements[2] = In_Fahrenheit(input_element, true);
-        break;
-    }
-    case 2: {
-        elements[0] = From_Fahrenheit(input_element, false);
-        ;
-        elements[1] = From_Fahrenheit(input_element, true);
-        elements[2] = input_element;
-        break;
-    }
-    }
+        double input_element = stod(str);
+        elements.resize(3);
+        switch (position_of_element) {
+        case 0: {
+            elements[0] = input_element;
+            elements[1] = Kelvin_Celsius(input_element, false);
+            elements[2] = In_Fahrenheit(input_element, false);
+            break;
+        }
+        case 1: {
+            elements[0] = Kelvin_Celsius(input_element, true);
+            elements[1] = input_element;
+            elements[2] = In_Fahrenheit(input_element, true);
+            break;
+        }
+        case 2: {
+            elements[0] = From_Fahrenheit(input_element, false);
+            ;
+            elements[1] = From_Fahrenheit(input_element, true);
+            elements[2] = input_element;
+            break;
+        }
+        }
     }
 }
 

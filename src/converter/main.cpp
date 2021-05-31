@@ -140,7 +140,11 @@ void calc_button_clicked(GtkWidget* widget, gpointer data)
 			else
 			{temp(elements, input_char, i); 
 			input_string = input_char;
-                        if (check_strock(input_string) == 0){gtk_entry_set_text(output, "Uncorrectly input"); pass = false;}}
+                        if (check_strock(input_string) == 0 || input_string == ""){
+				gtk_entry_set_text(output, "Uncorrectly input"); 
+				pass = false;
+				}
+			}
 		}
 	}
 	for(i = 0; i < size_units[type]; ++i){
