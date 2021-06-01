@@ -11,10 +11,10 @@
 
 typedef char gchar;
 
-string from_double_to_char(vector<double> elements, int i)
+std::string from_double_to_char(std::vector<double> elements, int i)
 {
-    string temprory;
-    stringstream ss;
+    std::string temprory;
+    std::stringstream ss;
     ss << elements[i];
     ss >> temprory;
     return temprory;
@@ -40,11 +40,11 @@ double From_Fahrenheit(double parametr, bool temp)
 }
 
 void temp(
-        vector<double>& elements,
+        std::vector<double>& elements,
         const char* input_char,
         int position_of_element)
 {
-    string str = input_char;
+    std::string str = input_char;
     if (check_strock(str) == 1 && !str.empty()) {
         double input_element = stod(str);
         elements.resize(3);
@@ -72,7 +72,7 @@ void temp(
     }
 }
 
-string filename[6]
+std::string filename[6]
         = {"..\\src\\res\\length.txt",
            "",
            "..\\src\\res\\area.txt",
@@ -81,19 +81,19 @@ string filename[6]
            "..\\src\\res\\time.txt"};
 
 void coeff_param(
-        vector<double>& elements,
+        std::vector<double>& elements,
         double input_element,
         int position_of_element,
         int file_num)
 {
-    string str;
+    std::string str;
     double i = 0;
-    vector<double> coefficients;
+    std::vector<double> coefficients;
 
-    ifstream file(filename[file_num].c_str());
+    std::ifstream file(filename[file_num].c_str());
 
     while (getline(file, str)) {
-        coefficients.push_back(stod(str.c_str()));
+        coefficients.push_back(std::stod(str.c_str()));
     }
     elements.resize(coefficients.size());
     elements[position_of_element] = input_element;
@@ -105,10 +105,10 @@ void coeff_param(
     }
 }
 
-int check_strock(string str)
+int check_strock(std::string str)
 {
-    string str_a = "0123456789,";
-    string str_char;
+    std::string str_a = "0123456789,";
+    std::string str_char;
     while (str != "") {
         str_char = str.substr(0, 1);
         str.erase(0, 1);
@@ -120,12 +120,12 @@ int check_strock(string str)
 }
 
 int check(
-        vector<double>& elements,
+        std::vector<double>& elements,
         const char* input_elements,
         int position_of_element,
         int& file_num)
 {
-    string str = input_elements;
+    std::string str = input_elements;
     if (check_strock(str) == 1 && !str.empty()) {
         double input = stod(str);
         coeff_param(elements, input, position_of_element, file_num);

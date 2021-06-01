@@ -7,11 +7,11 @@ CTEST(Conversion, length_conversion)
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         int position = 0;
 
-        vector<double> real_elements;
+	std::vector<double> real_elements;
 
         coeff_param(real_elements, input, position, 0);
 
-        vector<double> elements
+	std::vector<double> elements
                 = {input / 1e+0,
                    input / 1e+0 / 1e+3,
                    input / 1e+0 / 1e+3 / 1e-5,
@@ -41,13 +41,13 @@ CTEST(Conversion, temp_conversion)
 {
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         int position = 0;
-        vector<double> real_elements;
+	std::vector<double> real_elements;
         std::stringstream str;
         str << input;
         const char* input_char = str.str().c_str();
         temp(real_elements, input_char, position);
 
-        vector<double> elements = {input, input + 273.15, (input * 1.8) + 32};
+	std::vector<double> elements = {input, input + 273.15, (input * 1.8) + 32};
 
         for (int j = 0; j < 2; j++) {
             ASSERT_DBL_NEAR(elements[j], real_elements[j]);
@@ -60,11 +60,11 @@ CTEST(Conversion, volume_conversion)
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         int position = 0;
 
-        vector<double> real_elements;
+	std::vector<double> real_elements;
 
         coeff_param(real_elements, input, position, 3);
 
-        vector<double> elements
+	std::vector<double> elements
                 = {input / 1e+0,
                    input / 1e+0 / 1e+9,
                    input / 1e+0 / 1e+9 / 9999999999e-25,
@@ -112,11 +112,11 @@ CTEST(Conversion, area_conversion)
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         int position = 0;
 
-        vector<double> real_elements;
+	std::vector<double> real_elements;
 
         coeff_param(real_elements, input, position, 2);
 
-        vector<double> elements = {
+	std::vector<double> elements = {
                 input / 1e+0,
                 input / 1e+0 / 1e+6,
                 input / 1e+0 / 1e+6 / 1e-10,
@@ -145,11 +145,11 @@ CTEST(Conversion, time_conversion)
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         int position = 0;
 
-        vector<double> real_elements;
+	std::vector<double> real_elements;
 
         coeff_param(real_elements, input, position, 5);
 
-        vector<double> elements = {
+	std::vector<double> elements = {
                 input / 1e+0,
                 input / 1e+0 / 1e-3,
                 input / 1e+0 / 1e-3 / 1e-3,
@@ -176,11 +176,11 @@ CTEST(Conversion, weight_conversion)
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         int position = 0;
 
-        vector<double> real_elements;
+	std::vector<double> real_elements;
 
         coeff_param(real_elements, input, position, 4);
 
-        vector<double> elements
+	std::vector<double> elements
                 = {input / 1e+0,
                    input / 1e+0 / 1e-3,
                    input / 1e+0 / 1e-3 / 1e-3,
@@ -207,7 +207,7 @@ CTEST(Conversion, weight_conversion)
 CTEST(Check, check_strock_false)
 {
     for (double input = 0.01; input <= 5; input = input + 0.01) {
-        string str = "abc";
+	std::string str = "abc";
         str += std::to_string(input);
         char i = check_strock(str);
         ASSERT_EQUAL(0, i);
