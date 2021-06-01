@@ -220,4 +220,5 @@ CTEST(Check, check_strock_true)
     for (double input = 0.01; input <= 5; input = input + 0.01) {
         ASSERT_EQUAL(1, input);
     }
+
 } 
