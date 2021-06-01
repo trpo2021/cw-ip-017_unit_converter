@@ -218,6 +218,10 @@ CTEST(Check, check_strock_false)
 CTEST(Check, check_strock_true)
 {
     for (double input = 0.01; input <= 5; input = input + 0.01) {
-        ASSERT_EQUAL(1, input);
+	std::string str;
+	str += std::to_string(input);
+	char i = check_strock(str);
+        ASSERT_EQUAL(1, i);
+	str.clear()
     }
 }
