@@ -222,6 +222,6 @@ CTEST(Check, check_strock_true)
         str += std::to_string(input);
         char i = check_strock(str);
         ASSERT_EQUAL(1, i);
-        str.clear()
+        str.clear();
     }
 }
