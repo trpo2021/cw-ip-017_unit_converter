@@ -221,4 +221,3 @@ CTEST(Check, check_strock_true)
         ASSERT_EQUAL(1, input);
     }
 }
-
