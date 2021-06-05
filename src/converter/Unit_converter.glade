@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkListStore" id="liststore1">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes" context="Length">Length</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Temperature</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Area</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Volume</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Weight</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Time</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="mainflow">
+    <property name="can-focus">False</property>
+    <property name="resizable">False</property>
+    <property name="icon">..\images\44566655555.png</property>
+    <child>
+      <object class="GtkFixed" id="chest">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkImage" id="thing">
+            <property name="width-request">463</property>
+            <property name="height-request">612</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="pixbuf">..\images\unit_back_version_three.jpg</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBox" id="types">
+            <property name="width-request">376</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="model">liststore1</property>
+            <child>
+              <object class="GtkCellRendererText" id="units"/>
+              <attributes>
+                <attribute name="text">0</attribute>
+              </attributes>
+            </child>
+          </object>
+          <packing>
+            <property name="x">41</property>
+            <property name="y">29</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="object_of_types1">
+            <property name="width-request">377</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="x">41</property>
+            <property name="y">193</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="object_of_types2">
+            <property name="width-request">376</property>
+            <property name="height-request">80</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="x">38</property>
+            <property name="y">495</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="change_button">
+            <property name="label" translatable="yes">Set unit range</property>
+            <property name="width-request">296</property>
+            <property name="height-request">46</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">81</property>
+            <property name="y">128</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="input">
+            <property name="width-request">374</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="input-purpose">digits</property>
+          </object>
+          <packing>
+            <property name="x">38</property>
+            <property name="y">302</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="output">
+            <property name="width-request">375</property>
+            <property name="height-request">48</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="editable">False</property>
+            <property name="input-purpose">digits</property>
+          </object>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">421</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="calc_button">
+            <property name="label" translatable="yes">Calculate</property>
+            <property name="width-request">126</property>
+            <property name="height-request">44</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">166</property>
+            <property name="y">363</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
