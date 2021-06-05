@@ -15,8 +15,8 @@ jobs:
       - name: pre-making
         run: sudo apt-get -y install libgtk-3-dev libwebkit2gtk-4.0-dev
 
-      - name: Tests
-        run: make test
-
       - name: Build application
         run: make
+        
+      - name: Tests
+        run: make test && ./bin/test.exe

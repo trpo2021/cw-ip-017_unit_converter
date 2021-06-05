@@ -125,9 +125,14 @@ int check(
         int position_of_element,
         int& file_num)
 {
+    double input;
     std::string str = input_elements;
     if (check_strock(str) == 1 && !str.empty()) {
-        double input = stod(str);
+        try {
+            input = stod(str);
+        } catch (const std::out_of_range& e) {
+            return 1;
+        }
         coeff_param(elements, input, position_of_element, file_num);
     } else
         return 1;
